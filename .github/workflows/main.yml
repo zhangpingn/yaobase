@@ -5,8 +5,8 @@ on:
     - main
 
 jobs:
-  main-to-gh-pages:
-    runs-on: ubuntu-latest
+  main-to-zp-pages:
+    runs-on: centos-latest
         
     steps:                          
     - name: checkout main
@@ -30,7 +30,7 @@ jobs:
         gitbook build
         cp SUMMARY.md _book
                 
-    - name: push _book to branch gh-pages 
+    - name: push _book to branch zp-pages 
       env:
         TOKEN: ${{ secrets.TOKEN }}
         REF: github.com/${{github.repository}}
@@ -45,4 +45,4 @@ jobs:
         git add . 
         git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
         git branch -M main
-        git push --force --quiet "https://${TOKEN}@${REF}" main:gh-pages
+        git push --force --quiet "https://${TOKEN}@${REF}" main:zp-pages

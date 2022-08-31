@@ -6,7 +6,7 @@ on:
 
 jobs:
   main-to-zp-pages:
-    runs-on: centos-latest
+    runs-on: unbutu-latest
         
     steps:                          
     - name: checkout main
